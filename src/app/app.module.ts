@@ -3,7 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TabMenuModule } from 'primeng/primeng';
+import { TabMenuModule} from 'primeng/components/tabmenu/tabmenu';
+import { AccordionModule } from 'primeng/components/accordion/accordion';
+import { ButtonModule } from 'primeng/components/button/button';
+import { DataTableModule } from 'primeng/components/datatable/datatable';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +14,8 @@ import { HeaderComponent } from './header/header.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GccScreenComponent } from './gcc-screen/gcc-screen.component';
+import { McaGridComponent } from './dashboard/mca-grid/mca-grid.component';
+import { DashboardService } from './dashboard/dashboard.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,8 @@ import { GccScreenComponent } from './gcc-screen/gcc-screen.component';
     HeaderComponent,
     NavigationComponent,
     DashboardComponent,
-    GccScreenComponent
+    GccScreenComponent,
+    McaGridComponent
   ],
   imports: [
     BrowserModule,
@@ -26,9 +32,9 @@ import { GccScreenComponent } from './gcc-screen/gcc-screen.component';
     HttpModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    TabMenuModule
+    TabMenuModule, AccordionModule, ButtonModule, DataTableModule
   ],
-  providers: [],
+  providers: [DashboardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
