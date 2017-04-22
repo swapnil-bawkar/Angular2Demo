@@ -1,0 +1,10 @@
+<div class="app-container">
+  <app-header></app-header>
+  <div class="app-main">
+    <app-navigation></app-navigation>
+    <div class="tab-container">
+      <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
