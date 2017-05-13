@@ -1,16 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { McaModel } from './mca-model';
 
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class DashboardService {
 
+  mcaData: McaModel[] = [];
+
   constructor(private http: Http) { }
 
-  fetchMcaData() {
+  fetchMcaData(): Observable<McaModel[]> {
     const url = '/data/mca.json';
-    return this.http.get(url).map(res => res.json());
+    if (this.mcaData.length > 0) {
+      return Observable.of(this.mcaData);
+    } else {
+      return this.http.get(url).map(res => {
+        this.mcaData = res.json();
+        return this.mcaData;
+      });
+    }
   }
 }
