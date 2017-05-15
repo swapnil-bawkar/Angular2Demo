@@ -1,6 +1,6 @@
 # NgDemo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+To run this project click [Angular Demo](https://swapnil-bawkar.github.io/Angular2Demo/dist/index.html) version 1.0.0.
 
 ## Development server
 
