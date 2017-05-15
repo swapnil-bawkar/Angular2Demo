@@ -7,7 +7,7 @@ import { McaModel } from './mca-model';
   selector: 'app-dashboard',
   template: `
     <p-accordion>
-      <p-accordionTab header="MCA">
+      <p-accordionTab header="MCA" [selected]="true">
         <app-mca-grid [mcaData]="mcaData"></app-mca-grid>
       </p-accordionTab>
       <p-accordionTab header="All Batches">
