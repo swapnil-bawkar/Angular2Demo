@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { APP_BASE_HREF, Location } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TabMenuModule} from 'primeng/components/tabmenu/tabmenu';
 import { AccordionModule } from 'primeng/components/accordion/accordion';
@@ -34,7 +35,10 @@ import { DashboardService } from './dashboard/dashboard.service';
     BrowserAnimationsModule,
     TabMenuModule, AccordionModule, ButtonModule, DataTableModule
   ],
-  providers: [DashboardService],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: window['_app_base'] || '/' },
+    DashboardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
