@@ -8,10 +8,7 @@ import { Component, OnInit } from '@angular/core';
         <a routerLink="/dashboard">Dashboard</a>
       </li>
       <li>
-        <a routerLink="/gcc-screen">Gcc Screen</a>
-      </li>
-      <li>
-        <a>Services</a>
+        <a routerLink="/gcc-screen">Tab 2</a>
       </li>
     </ul>
   `,

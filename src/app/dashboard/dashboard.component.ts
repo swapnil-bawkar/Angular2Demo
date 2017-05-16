@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DashboardService } from "app/dashboard/dashboard.service";
-import { McaModel } from './mca-model';
+import { UserModel } from './user-model';
 
 @Component({
   selector: 'app-dashboard',
   template: `
     <p-accordion>
-      <p-accordionTab header="MCA" [selected]="true">
-        <app-mca-grid [mcaData]="mcaData"></app-mca-grid>
+      <p-accordionTab header="Users" [selected]="true">
+        <app-user-grid [users]="users"></app-user-grid>
       </p-accordionTab>
       <p-accordionTab header="All Batches">
           Content 2
@@ -50,13 +50,13 @@ import { McaModel } from './mca-model';
 })
 export class DashboardComponent implements OnInit {
 
-  private mcaData: McaModel[] = [];
+  private users: UserModel[] = [];
 
   constructor(private dashboardService: DashboardService) { }
 
   ngOnInit() {
-    this.dashboardService.fetchMcaData().subscribe((data) => {
-      this.mcaData = data;
+    this.dashboardService.fetchUserData().subscribe((data) => {
+      this.users = data;
     });
   }
 

@@ -1,0 +1,23 @@
+<p-dataList [value]="posts" [paginator]="true" [rows]="5">
+    <p-header>
+        Posts
+    </p-header>
+    <ng-template let-post pTemplate="item">
+        <div class="ui-grid ui-grid-responsive ui-fluid" style="font-size:16px;padding:20px;border-bottom:1px solid #D5D5D5;">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-12">
+                    <div class="ui-grid ui-grid-responsive ui-fluid">
+                        <div class="ui-grid-row" style="font-weight: bold">
+                            <div class="ui-grid-col-2" >Title: </div>
+                            <div class="ui-grid-col-10" style="font-style: italic">{{post.title}}</div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2">Body: </div>
+                            <div class="ui-grid-col-10">{{post.body}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-dataList>

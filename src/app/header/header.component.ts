@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-header',
   template: `
     <p>
-      GCC
+      Persistant Tab Demo
     </p>
   `,
   styles: []

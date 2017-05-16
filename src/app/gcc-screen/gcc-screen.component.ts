@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-gcc-screen',
   template: `
     <p>
-      gcc-screen Works!
+      Tab2 Works!
     </p>
   `,
   styles: [``]

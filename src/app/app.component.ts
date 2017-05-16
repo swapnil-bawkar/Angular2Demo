@@ -3,8 +3,8 @@ import { MenuItem } from 'primeng/primeng';
 import { Router, NavigationEnd, ActivatedRoute } from "@angular/router";
 
 import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap';
+
+import { DashboardService } from './dashboard/dashboard.service';
 
 @Component({
   selector: 'app-root',
@@ -17,12 +17,12 @@ export class AppComponent implements OnInit {
   private navs = [{
     label: 'Dashboard',
     routerLink: '/dashboard'
-  },{
-    label: 'Gcc Screens',
+  }, {
+    label: 'Tab2',
     routerLink: '/gcc-screen'
   }];
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private dashboardService: DashboardService) { }
 
   ngOnInit() {
     this.items = [
@@ -33,14 +33,33 @@ export class AppComponent implements OnInit {
       .filter(event => event instanceof NavigationEnd)
       .subscribe((event: NavigationEnd) => {
         const path = event.url;
-        const nav = this.navs.find(nav => nav.routerLink === path);
-        if(nav) {
-          const menuItem = this.items.find(item => item.routerLink === nav.routerLink);
-          if(!menuItem) {
-            this.items.push(nav);
+        if (path === '/') {
+          return;
+        }
+        let nav = this.navs.find(nav => nav.routerLink === path);
+        if (!nav) {
+          if (path.match(/post\/[0-9]*/).length > 0) {
+            const id = path.split('/')[2];
+            this.dashboardService.getUserName(parseInt(id)).subscribe((userName) => {
+              nav = {
+                label: `${userName} Posts`,
+                routerLink: path
+              };
+              this.navs.push(nav);
+              this.activateTab(nav);
+            });
           }
-          this.activeItem = nav;
+        } else {
+          this.activateTab(nav);
         }
       });
+  }
+
+  activateTab(nav) {
+    const menuItem = this.items.find(item => item.routerLink === nav.routerLink);
+    if (!menuItem) {
+      this.items.push(nav);
+    }
+    this.activeItem = nav;
   }
 }

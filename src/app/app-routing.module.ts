@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GccScreenComponent } from './gcc-screen/gcc-screen.component';
+import { UserPostComponent } from './dashboard/user-post/user-post.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,9 @@ const routes: Routes = [
   }, {
     path: 'gcc-screen',
     component: GccScreenComponent
+  }, {
+    path: 'post/:id',
+    component: UserPostComponent
   }
 ];
 
