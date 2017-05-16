@@ -8,8 +8,7 @@ import { UserPost } from '../user-post';
 
 @Component({
   selector: 'app-user-post',
-  templateUrl: './user-post.component.html',
-  styleUrls: ['./user-post.component.css']
+  templateUrl: './user-post.component.html'
 })
 export class UserPostComponent implements OnInit {
   paramSubscription: Subscription;

@@ -39,6 +39,7 @@ import { UserPostComponent } from './dashboard/user-post/user-post.component';
     TabMenuModule, AccordionModule, ButtonModule, DataTableModule, DataListModule
   ],
   providers: [
+    { provide: APP_BASE_HREF, useValue: window['_app_base'] || '/' },
     DashboardService
   ],
   bootstrap: [AppComponent]
